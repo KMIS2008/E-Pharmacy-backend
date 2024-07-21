@@ -8,6 +8,6 @@ const isValidId = require ('../middlewares/isValidId.js');
 const productRouter = express.Router();
 
 productRouter.get("/", ctrl.getAllProducts);
-// contactsRouter.get("/:id", isValidId, ctrl.getContactById);
+productRouter.get("/:id", isValidId, ctrl.getProductById);
 
 module.exports = productRouter;
