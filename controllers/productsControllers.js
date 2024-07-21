@@ -1,4 +1,4 @@
-const Product = require('../model/poducts');
+const Product = require('../model/poducts.js');
 const ctrlWrapper = require('../helpers/ctrlWrapper.js');
 
 const HttpError = require('../helpers/HttpError.js');
@@ -14,7 +14,7 @@ const getAllProducts = async (req, res, next) => {
 const getProductById=async (req, res) => {
     // const {_id} = req.user;
     const {id} = req.params;
-    const productById =  await Product.findById(_id)
+    const productById =  await Product.findById(id)
 
     if (!productById){
           throw HttpError(404)
