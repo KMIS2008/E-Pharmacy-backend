@@ -17,6 +17,6 @@ const reviewsSchema= new Schema({
 
 reviewsSchema.post('save', handleMongooseError);
 
-const Reviews = model('review', reviewsSchema);
+const Reviews = model('customer-review', reviewsSchema);
 
 module.exports = Reviews;
