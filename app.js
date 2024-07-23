@@ -2,7 +2,7 @@ const express = require ("express");
 const morgan = require ("morgan");
 const cors =require ("cors");
 
-// const authRouter = require('./routes/authRouter.js');
+const authRouter = require('./routes/authRouter.js');
 const productRouter = require ("./routes/productRouter.js");
 // const orderRouter = require ("./routes/orderRouter.js");
 
