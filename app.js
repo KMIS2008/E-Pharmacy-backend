@@ -4,6 +4,7 @@ const cors =require ("cors");
 
 const authRouter = require('./routes/authRouter.js');
 const productRouter = require ("./routes/productRouter.js");
+const reviewsRouter = require ('./routes/reviewsRouter.js');
 // const orderRouter = require ("./routes/orderRouter.js");
 
 const mongoose = require('mongoose');
@@ -19,8 +20,9 @@ app.use(cors());
 app.use(express.json());
 // app.use(express.static("public"));
 
-// app.use("/api/users", authRouter);
+app.use("/api/user", authRouter);
 app.use("/api/products", productRouter);
+app.use("/api/customer-reviews", reviewsRouter);
 // app.use("/api/cart", orderRouter);
 
 app.use((_, res) => {

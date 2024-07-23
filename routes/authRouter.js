@@ -9,17 +9,17 @@ const upload = require ('../middlewares/upload.js')
 
 authRouter.post("/register", validateBody(registrSchema), ctr.register);
 
-authRouter.get('/verify/:verificationToken', ctr.verifyEmail);
+// authRouter.get('/verify/:verificationToken', ctr.verifyEmail);
 
-authRouter.post("/verify", validateBody(emailSchema), ctr.resentVerifyEmail);
+// authRouter.post("/verify", validateBody(emailSchema), ctr.resentVerifyEmail);
 
 authRouter.post("/login", validateBody(registrSchema), ctr.login);
 
-authRouter.get("/current", authdentificate, ctr.getCurrent);
+// authRouter.get("/current", authdentificate, ctr.getCurrent);
 
 authRouter.post("/logout", authdentificate, ctr.logout);
 
-authRouter.patch("/avatars", authdentificate,upload.single("avatar"), ctr.upDateAvatar)
+// authRouter.patch("/avatars", authdentificate,upload.single("avatar"), ctr.upDateAvatar)
 
 
 module.exports = authRouter;
