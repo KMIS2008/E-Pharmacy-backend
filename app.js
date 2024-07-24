@@ -24,7 +24,7 @@ app.use(express.json());
 app.use("/api/user", authRouter);
 app.use("/api/products", productRouter);
 app.use("/api/customer-reviews", reviewsRouter);
-app.use("/api/stores/nearest", storenearestRouter);
+app.use("/api/stores", storenearestRouter);
 // app.use("/api/cart", orderRouter);
 
 app.use((_, res) => {
