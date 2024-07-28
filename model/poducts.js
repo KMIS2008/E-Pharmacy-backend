@@ -21,10 +21,6 @@ const productSchema= new Schema({
     category:  {
         type: String,
       },
-    owner: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-      }
 },{versionKey:false, timestamps:true});
 
 productSchema.post('save', handleMongooseError);

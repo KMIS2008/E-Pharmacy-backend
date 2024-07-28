@@ -1,7 +1,6 @@
 const express = require ("express");
 const ctrl = require('../controllers/productsControllers.js');
 
-const validateBody = require ('../helpers/validateBody.js');
 const schema = require ('../schemas/contactsSchemas.js');
 const isValidId = require ('../middlewares/isValidId.js');
 
