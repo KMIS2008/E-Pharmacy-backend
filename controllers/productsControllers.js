@@ -3,8 +3,8 @@ const ctrlWrapper = require('../helpers/ctrlWrapper.js');
 
 const HttpError = require('../helpers/HttpError.js');
 
-const getAllProducts = async (req, res, next) => {
 
+const getAllProducts = async (req, res, next) => {
     const { page = 1, limit = 12 } = req.query; // Получаем параметры пагинации из запроса
     const skip = (page - 1) * limit; // Рассчитываем количество пропускаемых записей
 
@@ -16,6 +16,16 @@ const getAllProducts = async (req, res, next) => {
         totalPages: Math.ceil(totalProducts / limit), 
         currentPage: parseInt(page) 
     });
+};
+
+const getProductById=async (req, res) => {
+    const {id} = req.params;
+    const productById =  await Product.findById(id)
+
+    if (!productById){
+          throw HttpError(404)
+    }
+     res.status(200).json(productById);
 };
 
 module.exports = {
