@@ -19,12 +19,19 @@ const HttpError = require('../helpers/HttpError.js');
 // };
 
 const getAllProducts = async (req, res, next) => {
-    const { page = 1, limit = 12, keyword } = req.query; // Получаем параметры пагинации и ключевое слово из запроса
+    const { page = 1, limit = 12, keyword, category } = req.query; // Получаем параметры пагинации и ключевое слово из запроса
     const skip = (page - 1) * limit; // Рассчитываем количество пропускаемых записей
 
     let query = {};
+    // if (keyword) {
+    //     query = { name: { $regex: keyword, $options: 'i' } }; // Используем регулярное выражение для поиска по ключевому слову
+    // }
     if (keyword) {
-        query = { name: { $regex: keyword, $options: 'i' } }; // Используем регулярное выражение для поиска по ключевому слову
+        query.name = { $regex: keyword, $options: 'i' }; // Используем регулярное выражение для поиска по ключевому слову
+    }
+
+    if (category) {
+        query.category = category; // Добавляем параметр каталога в запрос, если он присутствует
     }
 
     const allProducts = await Product.find(query).skip(skip).limit(parseInt(limit));
