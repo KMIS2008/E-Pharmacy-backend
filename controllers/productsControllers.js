@@ -34,8 +34,19 @@ const getAllProducts = async (req, res, next) => {
         query.category = category; // Добавляем параметр каталога в запрос, если он присутствует
     }
 
+    
+
     const allProducts = await Product.find(query).skip(skip).limit(parseInt(limit));
     const totalProducts = await Product.countDocuments(query); // Общее количество продуктов для вычисления количества страниц
+    
+    if (allProducts.length === 0) {
+        return res.status(200).json({ 
+            message: 'Nothing was found for your request',
+            products: [],
+            totalPages: 0,
+            currentPage: parseInt(page)
+        });
+    }
     
     res.status(200).json({ 
         products: allProducts, 
