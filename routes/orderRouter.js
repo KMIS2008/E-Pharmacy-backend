@@ -1,14 +1,15 @@
-// const express = require ("express");
+const express = require ("express");
+const ctrl= require('../controllers/ordersControllers')
 
 // const validateBody = require ('../helpers/validateBody.js');
 // const schema = require ('../schemas/orderSchema.js');
 // const isValidId = require ('../middlewares/isValidId.js');
 // const authdentificate = require('../middlewares/authdentificate.js');
 
-// const orderRouter = express.Router();
+const orderRouter = express.Router();
 
-// orderRouter.get("/", authdentificate, ctrl.getAllContacts);
+orderRouter.get("/", ctrl.getOrders);
 // orderRouter.put("/update",authdentificate, validateBody(schema.updateOrderSchema),isValidId, ctrl.updateContact);
 // orderRouter.post("/checkout",authdentificate, validateBody(schema.createOrderSchema), ctrl.createContact);
 
-// module.exports = orderRouter;
+module.exports = orderRouter;
