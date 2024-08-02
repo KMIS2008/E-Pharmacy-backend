@@ -18,6 +18,7 @@ const cartsSchema= new Schema({
     stock:  {
         type: String,
       },
+      category: {type: String,}
 },{versionKey:false, timestamps:true});
 
 cartsSchema.post('save', handleMongooseError);

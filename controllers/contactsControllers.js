@@ -19,7 +19,7 @@ const HttpError = require('../helpers/HttpError.js');
    
 };
 
- const getContactById = async (req, res) => {
+ const getContactById = async (req, res) => {3
     const {_id} = req.user;
     const {id} = req.params;
     const contactsById =  await Contact.findOne({
