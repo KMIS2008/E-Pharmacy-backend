@@ -1,7 +1,7 @@
 const { Schema, model}= require('mongoose');
 const handleMongooseError= require('../helpers/handleMongooseError');
 
-const orderSchema= new Schema({
+const cartsSchema= new Schema({
    
     photo:  {
         type: String,
@@ -9,25 +9,19 @@ const orderSchema= new Schema({
     name:  {
         type: String,
       },
-    email:  {
-        type: String,
-      },
     price:  {
         type: String,
       },
-    products:  {
+    suppliers:  {
         type: String,
       },
-    phone:  {
-        type: String,
-      },
-    address:  {
+    stock:  {
         type: String,
       },
 },{versionKey:false, timestamps:true});
 
-orderSchema.post('save', handleMongooseError);
+cartsSchema.post('save', handleMongooseError);
 
-const Order = model('order', orderSchema);
+const Cart = model('cart', cartsSchema);
 
-module.exports = Order;
+module.exports = Cart;

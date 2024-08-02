@@ -6,7 +6,8 @@ const authRouter = require('./routes/authRouter.js');
 const productRouter = require ("./routes/productRouter.js");
 const reviewsRouter = require ('./routes/reviewsRouter.js');
 const storenearestRouter = require ('./routes/storesRouter.js')
-const orderRouter = require ("./routes/orderRouter.js");
+// const orderRouter = require ("./routes/orderRouter.js");
+const cartRouter =require('./routes/CartRout.js');
 
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -25,7 +26,8 @@ app.use("/api/user", authRouter);
 app.use("/api/products", productRouter);
 app.use("/api/customer-reviews", reviewsRouter);
 app.use("/api/stores", storenearestRouter);
-app.use("/api/cart", orderRouter);
+// app.use("/api/cart", orderRouter);
+app.use("/api/cart", cartRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });
