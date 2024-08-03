@@ -17,8 +17,23 @@ const addCarts = async(req, res, next)=>{
    
     res.status(201).json(newContact);
 }
+
+const deleteCart = async (req, res) => {
+    // const {_id} = req.user;
+    const {id} = req.params;
+    const delCart = await Cart.findOneAndDelete({
+        _id: id,
+        // owner: _id
+    });
+   
+    if (!delCart){
+        throw HttpError(404)
+    } 
+    res.status(200).json(delCart);
+};
+
 module.exports = {
     getCarts: ctrlWrapper(getCarts),
     addCarts:ctrlWrapper(addCarts),
-
+    deleteCart:ctrlWrapper(deleteCart)
 }
