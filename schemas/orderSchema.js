@@ -10,6 +10,8 @@ const Joi = require('joi');
     suppliers: Joi.string().required(),
     stock: Joi.string(),
     category: Joi.string(),
+    discription: Joi.string(),
+    reviews: Joi.string(),
 })
 
  const updateOrderSchema = Joi.object({

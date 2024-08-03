@@ -21,6 +21,10 @@ const cartsSchema= new Schema({
         type: String,
       },
       category: {type: String,},
+
+      // discription: {type: String,},
+
+      // reviews: {type: String,},
       
 },{versionKey:false, timestamps:true});
 
