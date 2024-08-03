@@ -2,7 +2,7 @@ const Joi = require('joi');
 
  const createOrderSchema = Joi.object({
 
-    id: Joi.string().required(), 
+    _id: Joi.string().required(), 
     photo: Joi.string().required(), 
     name: Joi.string().required(), 
     // address: Joi.string().required(),
