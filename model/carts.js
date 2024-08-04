@@ -22,7 +22,7 @@ const cartsSchema= new Schema({
       },
       category: {type: String,},
 
-      // discription: {type: String,},
+      quantity: {type: Number,},
 
       // reviews: {type: String,},
       

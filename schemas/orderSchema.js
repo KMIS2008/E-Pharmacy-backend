@@ -12,6 +12,7 @@ const Joi = require('joi');
     category: Joi.string(),
     discription: Joi.object(),
     reviews: Joi.array(),
+    quantity: Joi.number(),
 })
 
  const updateOrderSchema = Joi.object({
