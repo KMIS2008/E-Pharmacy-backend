@@ -12,4 +12,6 @@ cartRouter.post("/", validateBody(schema.createOrderSchema), ctrl.addCarts);
 
 cartRouter.delete("/:id", isValidId, ctrl.deleteCart);
 
+cartRouter.put("/update", validateBody(schema.updateOrderSchema), ctrl.updateCartQuantity);
+
 module.exports = cartRouter;

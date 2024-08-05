@@ -16,14 +16,8 @@ const Joi = require('joi');
 })
 
  const updateOrderSchema = Joi.object({
-    photo: Joi.string().required(), 
-    name: Joi.string().required(), 
-    address: Joi.string().required(),
-    products: Joi.string().required(),
-    price: Joi.string().required(),
-    status: Joi.string().required(),
-    order_date: Joi.string().required(), 
-    updatedAt: Joi.string()
+    _id: Joi.string().required(), 
+    quantity: Joi.number(),
 })
 
 module.exports= {createOrderSchema, updateOrderSchema}
