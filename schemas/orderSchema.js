@@ -23,10 +23,10 @@ const Joi = require('joi');
 const createFinishOrderSchema = Joi.object({
 
     _id: Joi.string(), 
-    photo: Joi.string().required(), 
-    name: Joi.string().required(), 
-    price: Joi.string().required(),
-    suppliers: Joi.string().required(),
+    photo: Joi.string(), 
+    name: Joi.string(), 
+    price: Joi.string(),
+    suppliers: Joi.string(),
     stock: Joi.string(),
     category: Joi.string(),
     discription: Joi.object(),
