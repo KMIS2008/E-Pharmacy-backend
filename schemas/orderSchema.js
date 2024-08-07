@@ -30,6 +30,7 @@ const orderSchema = Joi.object({
     category: Joi.string(),
     discription: Joi.object(),
     reviews: Joi.array(),
+    createdAt: Joi.date().iso(),
     quantity: Joi.number().required(),
 });
 
