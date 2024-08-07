@@ -1,5 +1,6 @@
 const ctrlWrapper = require('../helpers/ctrlWrapper.js');
 const Cart = require('../model/carts.js');
+const Order = require('../model/orders.js');
 
 
 const getCarts = async (req, res, next) => {
@@ -57,9 +58,20 @@ const updateCartQuantity = async (req, res) => {
     }
 };
 
+
+const addFinishCarts = async(req, res, next)=>{
+    // const {_id: owner}=req.user;
+    const newContact = await Order.create({...req.body, 
+        // owner
+    });
+   
+    res.status(201).json(newContact);
+}
+
 module.exports = {
     getCarts: ctrlWrapper(getCarts),
     addCarts:ctrlWrapper(addCarts),
     deleteCart:ctrlWrapper(deleteCart),
-    updateCartQuantity:ctrlWrapper(updateCartQuantity)
+    updateCartQuantity:ctrlWrapper(updateCartQuantity),
+    addFinishCarts:ctrlWrapper(addFinishCarts)
 }

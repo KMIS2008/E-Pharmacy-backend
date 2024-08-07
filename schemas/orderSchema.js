@@ -20,5 +20,24 @@ const Joi = require('joi');
     quantity: Joi.number(),
 })
 
-module.exports= {createOrderSchema, updateOrderSchema}
+const createFinishOrderSchema = Joi.object({
+
+    _id: Joi.string().required(), 
+    photo: Joi.string().required(), 
+    name: Joi.string().required(), 
+    price: Joi.string().required(),
+    suppliers: Joi.string().required(),
+    stock: Joi.string(),
+    category: Joi.string(),
+    discription: Joi.object(),
+    reviews: Joi.array(),
+    quantity: Joi.number(), 
+
+    namecustomer:Joi.string(),
+    address: Joi.string(),
+    phone: Joi.string(),
+    email: Joi.string(),
+})
+
+module.exports= {createOrderSchema, updateOrderSchema, createFinishOrderSchema}
 

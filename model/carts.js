@@ -24,10 +24,14 @@ const cartsSchema= new Schema({
 
       quantity: {type: Number,},
 
-      // reviews: {type: String,},
+      namecustomer: {type: String,},
 
-      // discription: {type: String,},
-      
+      address:{type: String,},
+
+      phone:{type: String,},
+
+      email:{type: String,},
+
 },{versionKey:false, timestamps:true});
 
 cartsSchema.post('save', handleMongooseError);
