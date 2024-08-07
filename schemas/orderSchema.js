@@ -20,25 +20,43 @@ const Joi = require('joi');
     quantity: Joi.number(),
 })
 
-const createFinishOrderSchema = Joi.object({
+const orderSchema = Joi.object({
+    _id: Joi.string().required(),
+    photo: Joi.string().uri().required(),
+    title: Joi.string().required(),
+    price: Joi.number().required(),
+    quantity: Joi.number().required(),
+});
 
-    _id: Joi.string(), 
-    photo: Joi.string(), 
-    name: Joi.string(), 
-    price: Joi.string(),
-    suppliers: Joi.string(),
-    stock: Joi.string(),
-    category: Joi.string(),
-    discription: Joi.object(),
-    reviews: Joi.array(),
-    quantity: Joi.number(), 
+// Створення основної схеми для всього payload
+const shippingInfoSchema = Joi.object({
+    namecustomer: Joi.string().required(),
+    email: Joi.string().email().required(),
+    phone: Joi.string().pattern(/^[0-9]{10}$/).required(),
+    address: Joi.string().required(),
+    paymentMethod: Joi.string().valid('Cash On Delivery', 'Bank').required(),
+    orders: Joi.array().items(orderSchema).required(),
+});
 
-    namecustomer:Joi.string(),
-    address: Joi.string(),
-    phone: Joi.string(),
-    email: Joi.string(),
-    paymentMethod:Joi.string(),
-})
+// const createFinishOrderSchema = Joi.object({
 
-module.exports= {createOrderSchema, updateOrderSchema, createFinishOrderSchema}
+//     _id: Joi.string(), 
+//     photo: Joi.string(), 
+//     name: Joi.string(), 
+//     price: Joi.string(),
+//     suppliers: Joi.string(),
+//     stock: Joi.string(),
+//     category: Joi.string(),
+//     discription: Joi.object(),
+//     reviews: Joi.array(),
+//     quantity: Joi.number(), 
+
+//     namecustomer:Joi.string(),
+//     address: Joi.string(),
+//     phone: Joi.string(),
+//     email: Joi.string(),
+//     paymentMethod:Joi.string(),
+// })
+
+module.exports= {createOrderSchema, updateOrderSchema, shippingInfoSchema}
 
