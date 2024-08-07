@@ -37,6 +37,7 @@ const orderSchema = Joi.object({
 
 // Створення основної схеми для всього payload
 const shippingInfoSchema = Joi.object({
+    _id:Joi.string().required(),
     namecustomer: Joi.string().required(),
     email: Joi.string().email().required(),
     phone: Joi.string().pattern(/^[0-9]{10}$/).required(),
