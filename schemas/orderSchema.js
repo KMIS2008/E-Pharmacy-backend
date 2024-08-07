@@ -23,8 +23,13 @@ const Joi = require('joi');
 const orderSchema = Joi.object({
     _id: Joi.string().required(),
     photo: Joi.string().uri().required(),
-    title: Joi.string().required(),
+    name: Joi.string(), 
     price: Joi.number().required(),
+     suppliers: Joi.string(),
+    stock: Joi.string(),
+    category: Joi.string(),
+    discription: Joi.object(),
+    reviews: Joi.array(),
     quantity: Joi.number().required(),
 });
 
