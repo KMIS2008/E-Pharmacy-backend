@@ -37,6 +37,7 @@ const createFinishOrderSchema = Joi.object({
     address: Joi.string(),
     phone: Joi.string(),
     email: Joi.string(),
+    paymentMethod:Joi.string(),
 })
 
 module.exports= {createOrderSchema, updateOrderSchema, createFinishOrderSchema}

@@ -28,6 +28,8 @@ const orderSchema= new Schema({
 
     email:{type: String,},
 
+    paymentMethod:{type: String,},
+
 },{versionKey:false, timestamps:true});
 
 orderSchema.post('save', handleMongooseError);
