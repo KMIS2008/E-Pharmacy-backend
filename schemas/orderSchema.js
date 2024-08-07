@@ -31,8 +31,9 @@ const orderSchema = Joi.object({
     discription: Joi.object(),
     reviews: Joi.array(),
     createdAt: Joi.date().iso(),
+    updatedAt: Joi.date().iso(),
     quantity: Joi.number().required(),
-});
+}).unknown();
 
 // Створення основної схеми для всього payload
 const shippingInfoSchema = Joi.object({
