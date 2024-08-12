@@ -13,6 +13,16 @@ const userSchema= new Schema({
           unique: true,
         },
 
+        name: {
+          type: String,
+          required: [true, 'Name is required'],
+        },
+
+        phone: {
+          type: String,
+          required: [true, 'Phone is required'],
+        },
+
         token: {
           type: String,
           default: null,
