@@ -29,27 +29,27 @@ const register = async (req, res)=>{
     }
 
     const hashPasword = await bcrypt.hash(password, 10);
-    const avatarURL = gravatar.url(email);
+    // const avatarURL = gravatar.url(email);
     const verificationToken = nanoid();
 
     const newUser = await User.create({
         ...req.body,
         password: hashPasword,
-        avatarURL,
+        // avatarURL,
         verificationToken
     });
      
-    const verifyEmail = {
-        to: email,
-        subject: 'Verify your email',
-        html: `<a target="_blank" href="${BASE_URL}/api/users/verify/${verificationToken}">Click verify email</a>`,
-      };
+    // const verifyEmail = {
+    //     to: email,
+    //     subject: 'Verify your email',
+    //     html: `<a target="_blank" href="${BASE_URL}/api/users/verify/${verificationToken}">Click verify email</a>`,
+    //   };
 
-    await sendEmail(verifyEmail);
+    // await sendEmail(verifyEmail);
 
     res.status(201).json(
        { email: newUser.email,
-         subscription: newUser.subscription
+        //  subscription: newUser.subscription
     });
 }
 
@@ -103,15 +103,17 @@ const resentVerifyEmail = async(req,res)=>{
 }
 
 const login = async (req, res)=>{
-    const { email, password, subscription} = req.body;
+    const { email, password, 
+        // subscription
+    } = req.body;
     const user = await User.findOne({email});
     if(!user){
         throw HttpError(401, "Email or password is wrong")
     }
 
-    if(!user.verify){
-        throw HttpError(401, 'Email not verified')
-    }
+    // if(!user.verify){
+    //     throw HttpError(401, 'Email not verified')
+    // }
 
     const passwordCompare = await bcrypt.compare(password, user.password);
     if(!passwordCompare){
@@ -129,13 +131,17 @@ const login = async (req, res)=>{
         token,
         user: {
             email: user.email,
-            subscription: user.subscription
+            // subscription: user.subscription
           }})
 }
 
    const getCurrent = (req, res)=>{
-    const {email, subscription} = req.user;
-    res.status(200).json({email, subscription})
+    const {email, 
+        // subscription
+    } = req.user;
+    res.status(200).json({email, 
+        // subscription
+    })
    }
 
    const logout = async (req, res)=>{
