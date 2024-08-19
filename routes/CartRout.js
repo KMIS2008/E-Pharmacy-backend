@@ -9,7 +9,7 @@ const cartRouter=express.Router();
 
 cartRouter.get("/", authdentificate, ctrl.getCarts);
 
-cartRouter.post("/", validateBody(schema.createOrderSchema), ctrl.addCarts);
+cartRouter.post("/", authdentificate, validateBody(schema.createOrderSchema), ctrl.addCarts);
 
 cartRouter.delete("/:id", isValidId, ctrl.deleteCart);
 
