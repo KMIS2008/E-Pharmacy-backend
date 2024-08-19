@@ -10,13 +10,12 @@ const {nanoid} = require('nanoid');
 
 const  {SECRET_KEY} = process.env;
 const {BASE_URL} = process.env;
-const gravatar = require('gravatar');
+// const gravatar = require('gravatar');
 const path = require('path');
 const fs=require('fs/promises');
 
 
-
-const avatarsDir = path.join(__dirname, "../", "public", 'avatars');
+// const avatarsDir = path.join(__dirname, "../", "public", 'avatars');
 
 const HttpError = require('../helpers/HttpError.js');
 
