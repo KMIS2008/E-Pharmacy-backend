@@ -6,15 +6,15 @@ const Order = require('../model/orders.js');
 const getCarts = async (req, res, next) => {
     const {_id: owner} =req.user;
 
-    const allCarts = await Cart.find({owner});
+    const allCarts = await Cart.find({ owner });
     
     res.status(200).json(allCarts);  
 };  
 
 const addCarts = async(req, res, next)=>{
-    // const {_id: owner}=req.user;
+    const {_id: owner}=req.user;
     const newContact = await Cart.create({...req.body, 
-        // owner
+        owner
     });
    
     res.status(201).json(newContact);
