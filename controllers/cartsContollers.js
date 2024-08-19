@@ -23,7 +23,6 @@ const addCarts = async(req, res, next)=>{
 const deleteCart = async (req, res) => {
     const {_id} = req.user;
     const {id} = req.params;
-    // const delCart = await Cart.findByIdAndDelete(id);
     const delCart = await Cart.findOneAndDelete({
         _id: id,
         owner: _id

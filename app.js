@@ -6,7 +6,6 @@ const authRouter = require('./routes/authRouter.js');
 const productRouter = require ("./routes/productRouter.js");
 const reviewsRouter = require ('./routes/reviewsRouter.js');
 const storenearestRouter = require ('./routes/storesRouter.js')
-// const orderRouter = require ("./routes/orderRouter.js");
 const cartRouter =require('./routes/CartRout.js');
 
 const mongoose = require('mongoose');
@@ -20,7 +19,6 @@ const app = express();
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
-// app.use(express.static("public"));
 
 app.use("/api/user", authRouter);
 app.use("/api/products", productRouter);
@@ -47,6 +45,3 @@ mongoose.connect(DB_HOST)
   console.log(error.message)
   process.exit(1)
 })
-
-
-

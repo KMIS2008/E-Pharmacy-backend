@@ -15,23 +15,17 @@ const userSchema= new Schema({
 
         name: {
           type: String,
-          
         },
 
         phone: {
           type: String,
-          
         },
 
         token: {
           type: String,
           default: null,
         },
-        // avatarURL: String,
-        // verify: {
-        //   type: Boolean,
-        //   default: false,
-        // },
+
         verificationToken: {
           type: String,
           required: [true, 'Verify token is required'],

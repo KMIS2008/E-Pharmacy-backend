@@ -7,10 +7,5 @@ const registrSchema = Joi.object({
     phone:Joi.string(),
 });
 
-// const emailSchema = Joi.object({
-//     email: Joi.string().required(),
-// })
 
-module.exports = {registrSchema, 
-    // emailSchema
-};
+module.exports = {registrSchema};

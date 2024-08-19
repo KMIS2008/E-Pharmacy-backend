@@ -5,7 +5,6 @@ const Joi = require('joi');
     _id: Joi.string().required(), 
     photo: Joi.string().required(), 
     name: Joi.string().required(), 
-    // address: Joi.string().required(),
     price: Joi.string().required(),
     suppliers: Joi.string().required(),
     stock: Joi.string(),
@@ -35,7 +34,7 @@ const orderSchema = Joi.object({
     quantity: Joi.number().required(),
 }).unknown();
 
-// Створення основної схеми для всього payload
+
 const shippingInfoSchema = Joi.object({
     _id:Joi.string().required(),
     namecustomer: Joi.string().required(),
@@ -46,25 +45,5 @@ const shippingInfoSchema = Joi.object({
     orders: Joi.array().items(orderSchema).required(),
 });
 
-// const createFinishOrderSchema = Joi.object({
-
-//     _id: Joi.string(), 
-//     photo: Joi.string(), 
-//     name: Joi.string(), 
-//     price: Joi.string(),
-//     suppliers: Joi.string(),
-//     stock: Joi.string(),
-//     category: Joi.string(),
-//     discription: Joi.object(),
-//     reviews: Joi.array(),
-//     quantity: Joi.number(), 
-
-//     namecustomer:Joi.string(),
-//     address: Joi.string(),
-//     phone: Joi.string(),
-//     email: Joi.string(),
-//     paymentMethod:Joi.string(),
-// })
 
 module.exports= {createOrderSchema, updateOrderSchema, shippingInfoSchema}
-

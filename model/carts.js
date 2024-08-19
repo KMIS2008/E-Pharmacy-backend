@@ -1,6 +1,6 @@
 const { Schema, model}= require('mongoose');
 const handleMongooseError= require('../helpers/handleMongooseError');
-// const { ObjectId } = mongoose.Schema.Types;
+
 
 const cartsSchema= new Schema({
     _id: { type: String},
@@ -20,19 +20,19 @@ const cartsSchema= new Schema({
     stock:  {
         type: String,
       },
-      category: {type: String,},
+    category: {type: String,},
 
-      quantity: {type: Number,},
+    quantity: {type: Number,},
 
-      namecustomer: {type: String,},
+    namecustomer: {type: String,},
 
-      address:{type: String,},
+    address:{type: String,},
 
-      phone:{type: String,},
+    phone:{type: String,},
 
-      email:{type: String,},
+    email:{type: String,},
 
-      owner: {
+    owner: {
         type: Schema.Types.ObjectId,
         ref: 'user',
       }
