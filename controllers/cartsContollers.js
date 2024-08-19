@@ -37,6 +37,7 @@ const deleteCart = async (req, res) => {
 
 const updateCartQuantity = async (req, res) => {
     try {
+
         const { _id, quantity } = req.body;
 
         if (!_id || quantity === undefined) {
@@ -59,11 +60,10 @@ const updateCartQuantity = async (req, res) => {
     }
 };
 
-
 const addFinishCarts = async(req, res, next)=>{
-    // const {_id: owner}=req.user;
+    const {_id: owner}=req.user;
     const newContact = await Order.create({...req.body, 
-        // owner
+        owner
     });
    
     res.status(201).json(newContact);
