@@ -4,8 +4,9 @@ const Order = require('../model/orders.js');
 
 
 const getCarts = async (req, res, next) => {
+    const {_id: owner} =req.user;
 
-    const allCarts = await Cart.find();
+    const allCarts = await Cart.find({owner});
     
     res.status(200).json(allCarts);  
 };  

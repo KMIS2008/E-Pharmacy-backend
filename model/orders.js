@@ -30,6 +30,11 @@ const orderSchema= new Schema({
 
     paymentMethod:{type: String,},
 
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    }
+
 },{versionKey:false, timestamps:true});
 
 orderSchema.post('save', handleMongooseError);

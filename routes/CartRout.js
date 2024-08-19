@@ -6,7 +6,7 @@ const isValidId = require('../middlewares/isValidId');
 
 const cartRouter=express.Router();
 
-cartRouter.get("/", ctrl.getCarts);
+cartRouter.get("/", authdentificate, ctrl.getCarts);
 
 cartRouter.post("/", validateBody(schema.createOrderSchema), ctrl.addCarts);
 

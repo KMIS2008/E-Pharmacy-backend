@@ -32,6 +32,11 @@ const cartsSchema= new Schema({
 
       email:{type: String,},
 
+      owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      }
+
 },{versionKey:false, timestamps:true});
 
 cartsSchema.post('save', handleMongooseError);
